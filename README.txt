@@ -1,6 +1,5 @@
 audio_hdmi_8series
 ============
-OS X Haswell HDMI Audio
 OS X Haswell/8 Series/Soclet 1150 HD4600/ AMD/Nvidia HDMI Audio
 With or Without DSDT Edits
 
@@ -19,7 +18,7 @@ Notes
 3a. Audio_ID: 1 supports HD4600/AMD/Nvidia HDMI and 3, 5 and 6 port ALC8xx onboard audio
 3b. Audio_ID: 2 supports HD4600/AMD/Nvidia HDMI and 3 port ALC8xx onboard audio
 4. Haswell patches must be applied after each software update.  
-5.No testing on laptops has been performed to date.
+5. No testing on laptops has been performed to date.
 
 More Information
 1. Mountain Lion: Optimized AppleHDA for Realtek ALC8xx
@@ -59,7 +58,7 @@ ML: Haswell HDMI Audio ssdt
 
 Guides
 1. OS X Haswell HD4600/AMD/Nvidia HDMI Audio
-1a. [Guide] ML-8_series-hdmi_audio_(dsdt_or_ssdt)_v1.0
+1a. [Guide] [Guide] ML-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.0
 1b. Patches
     ib1. 8series-Clean Compile - fix native dsdt compiler errors for successful dsdt edits
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
