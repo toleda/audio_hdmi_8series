@@ -1,5 +1,6 @@
 audio_hdmi_8series
 ============
+OS X Haswell HDMI Audio
 OS X Haswell/8 Series/Soclet 1150 HD4600/ AMD/Nvidia HDMI Audio
 With or Without DSDT Edits
 
@@ -60,7 +61,6 @@ Guides
 1. OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. [Guide] ML-8_series-hdmi_audio_(dsdt_or_ssdt)_v1.0
 1b. Patches
-<<<<<<< HEAD
     ib1. 8series-Clean Compile - fix native dsdt compiler errors for successful dsdt edits
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
     has1-dsdt-ami-8_series_hdmi_audio-2.txt
@@ -68,20 +68,6 @@ Guides
     ssdt-ami-8_series_hdmi_audio-1.zip
     ssdt-ami-8_series_hdmi_audio-2.zip
 1c. Troubleshooting/Post to http://www.tonymacx86.com/hdmi-audio/
-=======
-    ib1. UEFI-Clean Compile - fix native dsdt compiler errors for successful dsdt edits
-    uefi1. Desktop-AMD/Nvidia-A1 - AMD/Nvidia HDMI audio dsdt edits
-    uefi2. Desktop-HD4K/HD3K/AMD/Nvidia-A3 - HD4000 HDMI audio dsdt edits
-    uefi3. Laptop-A3-FB_01 - Laptop HD4K/HD3K HDMI audio dsdt edits
-    uefi4. Laptop-A3-FB_03 - Laptop HD4K/HD3K HDMI audio dsdt edits
-    uefi5. NUC-HD4K-A1 - NUC HDMI audio edits (2xHDMI and TB)
-    ib4. HD4K-on-6_Series_MEI - HD4K MEI dsdt edit (apply once, only with uefi1 - uefi4)
-    3b5. HD3K-on-7_Series_MEI - HD3K MEI dsdt edit (apply once, only with uefi1 - uefi4)
-
-Troubleshooting/Post
-1. http://www.tonymacx86.com/hdmi-audio/100492-easy-guide-ml-uefi-hdmi-audio.html
-2. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
->>>>>>> 7a13c3ee5dadb8a29f6b38e1802fab8eaae21673
 
 toleda
 https://github.com/toleda/audio_hdmi_8series
