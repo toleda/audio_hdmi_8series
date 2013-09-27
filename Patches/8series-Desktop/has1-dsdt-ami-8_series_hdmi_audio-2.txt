@@ -1,0 +1,127 @@
+# Maintained by: toleda for: github.com/toleda/audio_hdmi
+# File: has1-8_series_hdmi_audio-2_v3.0
+# Credit: PikeRAlpha
+
+# Desktop AMD/Nvidia/HD5K HDMI audio dsdt edits (Audio ID: 1)
+# Enables HD5K/AMD and HD5K/Nvidia AirPlay Mirroring.
+# Azul/Framebuffer: 0D22 0003 Mac mini??? - -FB/DP connector/port 0x7
+#
+# NOTE: Run this patch file only once on a dsdt.  
+# If you must run this patch again: delete Steps 1, 2 and 3, 
+# patch with Steps 4, 5, 6 and 7 only.
+#
+# Tasks:
+# 1. Remove PEGP device - if present
+# 2. Rename GFX0 devices to IGPU - Verify IOReg/GFXO@2
+# 3. Rename device P0P2 to device PEGP - Verify IOReg/P0P2@1
+# 4. Insert device GFX0 and device HDAU into device PEGP (Nvidia/AMD HDMI audio)
+# 5. Insert HDMI audio injection into device IGPU (HD5K HDMI audio - Part 1/2)
+# 6. Add device HDAU (HD5K HDMI audio - Part 2/2)
+# 7. Insert audio injection into device HDEF (HDEF audio)
+#
+# Run this patch once for any dsdt.
+# Delete/Comment out to Step 4 to patch the same dsdt again.
+#
+# 1. Remove PEGP device
+into device label PEGP remove_entry;
+# 2. Rename GFX0 devices to IGPU
+into device label GFX0 set_label begin IGPU end;
+into_all all code_regex GFX0 replaceall_matched begin IGPU end;
+into scope label _SB.PCI0.GFX0 set_label begin _SB.PCI0.IGPU end;ß
+into scope label \_SB.PCI0.GFX0 set_label begin \_SB.PCI0.IGPU end;
+# 3. Rename device P0P2 to device PEGP
+into scope label _SB.PCI0.P0P2.PEGP set_label begin _SB.PCI0.PEGP.GFX0 end;
+into_all all code_regex PEGP replaceall_matched begin GFX0 end;
+into device label P0P2 set_label begin PEGP end;
+into scope label _SB.PCI0.P0P2 set_label begin _SB.PCI0.PEGP end;
+into_all all code_regex P0P2 replaceall_matched begin PEGP end;
+# 
+# To patch more than once, delete from "Run this patch once …" (above) to here.
+#
+# 4.  Insert device GFX0 and device HDAU (Nvidia/AMD HDMI audio)
+into method label _DSM parent_adr 0x00010000 remove_entry;
+into device name_adr 0x00010000 insert
+begin
+Device (GFX0)\n
+{\n
+    Name (_ADR, Zero)\n
+    Name (_SUN, One)\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+            {\n
+                "@0,connector-type", Buffer() { 0x00, 0x08, 0x00, 0x00 },\n
+                "@1,connector-type", Buffer() { 0x00, 0x08, 0x00, 0x00 },\n
+                "@2,connector-type", Buffer() { 0x00, 0x08, 0x00, 0x00 },\n
+                "@3,connector-type", Buffer() { 0x00, 0x08, 0x00, 0x00 },\n
+                "hda-gfx", Buffer() { "onboard-2" },\n
+	    })\n
+    }\n
+}\n
+Device (HDAU)\n
+{\n
+    Name (_ADR, One)\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+            {\n
+		"layout-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+                "hda-gfx", Buffer() { "onboard-2" },\n
+	    })\n
+    }\n
+}\n
+end;
+# 5. Add device IGPU and inject Azul framebuffer(HD5K HDMI audio - Part 1/2)
+into device name_adr 0x00020000 set_label begin IGPU end;
+into device label PCI0 insert
+begin
+Device (IGPU)\n
+{\n
+	Name (_ADR, 0x00020000)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+	        "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x22, 0x0D },\n
+                "hda-gfx", Buffer() { "onboard-1" },\n
+	    })\n
+	}\n
+}\n
+end;
+#6. Add device HDAU (HD5K HDMI audio - Part 2/2)
+into device name_adr 0x00030000 set_label begin HDAU end;
+into device label PCI0 insert
+begin
+Device (HDAU)\n
+{\n
+	Name (_ADR, 0x00030000)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+                "layout-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+                "hda-gfx", Buffer() { "onboard-1" },\n
+	    })\n
+	}\n
+}\n
+end;
+# 7. Insert audio injection into device HDEF (HDEF audio)
+into method label _DSM parent_adr 0x001B0000 remove_entry;
+into device name_adr 0x001B0000 insert
+begin
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+                "layout-id", Buffer() { 0x02, 0x00, 0x00, 0x00 },\n
+                "PinConfigurations", Buffer(Zero) {},\n
+	    })\n
+    }\n
+end;
+into definitionblock code_regex . insert
+begin Store ("hhas1-8_series_hdmi_audio-2_v3.0 dsdt edits, github.com/toleda", Debug) end
