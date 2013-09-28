@@ -1,0 +1,10 @@
+# Maintained by: toleda for: github.com/toleda_hdmi_hd4000
+# File: has0-8series-Clean_Compile.txt_v1.0
+# Credits: http://olarila.com/forum/patches.php, PJALM http://repo.pjalm.info/general
+#
+# Complier fixes for newly extracted AMI/8series/dsdts
+# TBA
+#
+# Debug
+# into definitionblock code_regex . insert
+# begin Store ("has0-8series-Clean_Compile_v1.0 dsdt edits, github.com/toleda", Debug) end
