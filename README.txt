@@ -13,12 +13,12 @@ Requirements (this version, Haswell HDMI audio)
 2. OS X 10.8.5/AppleHDA_v2.4.7 and newer.
 
 Notes
-1. Haswell/AppleHDA.kext edit, use audio_hdmi_hd5K-hda-85_patch.command
+1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
 2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
 3. Haswell HDMI audio woks with two ML Audio IDs
 3a. Audio_ID: 1 supports HD4600/AMD/Nvidia HDMI and 3, 5 and 6 port ALC8xx onboard audio
 3b. Audio_ID: 2 supports HD4600/AMD/Nvidia HDMI and 3 port ALC8xx onboard audio
-4. For unsupported motherboard audio codecs, the native 10.8.5 AppleHDA.kext supports HDMI audio only when configured properly (Notes 1, 2 and 3a
+4. For unsupported motherboard audio codecs, the native 10.8.5 AppleHDA.kext supports HDMI audio only when configured properly (Notes 1, 2 and 3a)
 5. Haswell patches must be applied after each software update.  
 6. No testing on laptops has been performed to date.
 
