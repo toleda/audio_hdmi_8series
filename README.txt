@@ -14,21 +14,13 @@ Requirements (this version, Haswell HDMI audio)
 
 Notes
 1. Haswell/AppleHDA.kext edit, use audio_hdmi_hd5K-hda-85_patch.command
-2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k_azul-85_patch.command
+2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
 3. Haswell HDMI audio woks with two ML Audio IDs
 3a. Audio_ID: 1 supports HD4600/AMD/Nvidia HDMI and 3, 5 and 6 port ALC8xx onboard audio
 3b. Audio_ID: 2 supports HD4600/AMD/Nvidia HDMI and 3 port ALC8xx onboard audio
 4. For unsupported motherboard audio codecs, the native 10.8.5 AppleHDA.kext supports HDMI audio only when configured properly (Notes 1, 2 and 3a
 5. Haswell patches must be applied after each software update.  
 6. No testing on laptops has been performed to date.
-
-More Information
-1. Mountain Lion: Realtek ALC audio
-1a. http://www.tonymacx86.com/audio/76202-mountain-lion-optimized-applehda-realtek-alc8xx.html
-1b. http://www.insanelymac.com/forum/topic/290797-mountain-lion-realtek-alc-applehda-audio/
-2. ML: Haswell/8 Series HDMI Audio
-2a. http://www.tonymacx86.com/hdmi-audio/108302-haswell-hdmi-audio.html#post658883
-2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
 
 Two ML Haswell HDMI audio enabling techniques - select one
 1. ML: Haswell HDMI Audio dsdt (with dsdt edits) 
