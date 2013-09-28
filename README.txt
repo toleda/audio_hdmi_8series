@@ -1,6 +1,6 @@
 audio_hdmi_8series
 ============
-OS X Haswell/8 Series/Soclet 1150 HD4600/ AMD/Nvidia HDMI Audio
+OS X Haswell/8 Series/Socket 1150 - HD4600/AMD/Nvidia HDMI Audio
 With or Without DSDT Edits
 
 Mountain Lion HDMI audio for Haswell HD4600 systems with either: 1. HDMI audio edited dsdt or 2. the Haswell HDMI audio ssdt. Both techniques enable native Haswell graphics power management.  Haswelll HDMI audio is not native; AppleHDA.kext and AppleIntelFramebufferAzul.kext require edits (Note 1 and 2, below).
@@ -36,7 +36,7 @@ Two ML Haswell HDMI audio enabling techniques - select one
 
 ML: Haswells HDMI Audio dsdt
 1. MaciASL - http://sourceforge.net/projects/maciasl/?source=navbar
-2. Configuration: MaciASL/Preferences/Sources/+/
+2. Configuration: MaciASL/Preferences/Sources/+/  (copy/paste URL, don't click)
 3. URL: https://raw.github.com/toleda/audio_hdmi_8series/master
 
 Usage
@@ -54,7 +54,7 @@ Installation - edited dsdt.aml to Extra
 3. Restart
 
 ML: Haswell HDMI Audio ssdt
-1. https://github.com/toleda/audio_hdmi_8series/hdmi_ssdt
+1. https://github.com/toleda/audio_hdmi_8series/tree/master/ssdt_8series
 2. Copy Downloads/ssdt-ami-8_series_hdmi_audio-1/SSDT-1.aml to Extra
 2a. If Extra/SSDT.aml is present, install Downloads/audio_ssdt-uefi_hdmi_v3/SSDT-1.aml as Extra/SSDT-1.aml
 2b. If no Extra/SSDT.aml, rename Downloads/audio_ssdt-uefi_hdmi_v3/SSDT-1.aml to SSDT.aml and install as Extra/SSDT.aml
