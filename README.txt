@@ -12,6 +12,9 @@ Requirements (this version, Haswell HDMI audio)
 1. AMI UEFI/Haswell/8 Series/Socket 1150 Intel motherboard
 2. OS X 10.8.5/AppleHDA_v2.4.7 and newer.
 
+Details
+[Guide] ML-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.0.pdf
+
 Notes
 1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
 2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
@@ -64,14 +67,14 @@ Problem Reporting
 
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. [Guide] [Guide] ML-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.0
-1b. patched (kext)
+1b. patches (kext)
     audio_hdmi_hd5k_azul-85_patch.command
     audio_hdmi_hd5k_hda-85_patch.command    
 1b. Patches (dsdt)
     has0-8series-Clean_Compile - fix native dsdt compiler errors (TBA)
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
     has1-dsdt-ami-8_series_hdmi_audio-2.txt
-1c. ssdt
+1c. ssdts
     ssdt-ami-8_series_hdmi_audio-1.zip
     ssdt-ami-8_series_hdmi_audio-2.zip
 
