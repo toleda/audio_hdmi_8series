@@ -6,14 +6,14 @@ With or Without DSDT Edits
 Mountain Lion HDMI audio for Haswell HD4600 systems with either: 1. HDMI audio edited dsdt or 2. the Haswell HDMI audio ssdt. Both techniques enable native Haswell graphics power management.  Haswelll HDMI audio is not native; AppleHDA.kext and AppleIntelFramebufferAzul.kext require edits (Note 1 and 2, below).
 Credit, PikeRAlpha for both fixes.
 
-Supported HDMI audio graphics systems are AMD discrete graphics cards (HD5xxx, HD6xxx, HD7xxx), Nvidia discrete graphics cards (4xx, 5xxx and 6xx, 7xx) and Intel HD4600 integrated graphics systems.  The Optimized AppleHDA.kext supports HDMI audio and Realtek audio codecs (ALC887, ALC892, ALC898 and 1150) for onboard audio.  For unsupported onboard audio codecs, the native 10.8.5 AppleHDA.kext supports HDMI audio only when configured properly (Notes 1, 2 and 3a, below).
+Supported HDMI audio graphics systems are AMD discrete graphics cards (HD5xxx, HD6xxx), Nvidia discrete graphics cards (4xx, 5xxx and 6xx, 7xx) and Intel HD4600 integrated graphics systems.  The Optimized AppleHDA.kext supports HDMI audio and Realtek audio codecs (ALC887, ALC892, ALC898 and 1150) for onboard audio.  For unsupported onboard audio codecs, the native 10.8.5 AppleHDA.kext supports HDMI audio only when configured properly (Notes 1, 2 and 3a, below).
 
 Requirements (this version, Haswell HDMI audio)
 1. AMI UEFI/Haswell/8 Series/Socket 1150 Intel motherboard
 2. OS X 10.8.5/AppleHDA_v2.4.7 and newer.
 
 Details
-[Guide] ML-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.0.pdf
+[Guide] ML-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.1.pdf
 
 Notes
 1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
@@ -53,8 +53,11 @@ ML: Haswell HDMI Audio ssdt
 2. Copy Downloads/ssdt-ami-8_series_hdmi_audio-1/SSDT-1.aml to Extra
 2a. If Extra/SSDT.aml is present, install Downloads/audio_ssdt-uefi_hdmi_v3/SSDT-1.aml as Extra/SSDT-1.aml
 2b. If no Extra/SSDT.aml, rename Downloads/audio_ssdt-uefi_hdmi_v3/SSDT-1.aml to SSDT.aml and install as Extra/SSDT.aml
-3. Rebuild kernel cache
-4. Restart
+3. Enable ssdt
+3a. Chameleon/Chimera: Add DropSSDT=Yes to org,chameleon.Boot.plist
+3b. Clover: Set DropOem=true to config.plist/ACPI/SSDT
+4. Rebuild kernel cache
+5. Restart
 
 Problem Reporting
 1. Motherboard/BIOS version/processor/graphics/OS and version
