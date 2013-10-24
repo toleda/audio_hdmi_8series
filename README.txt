@@ -72,11 +72,16 @@ ML: Haswell HDMI Audio ssdt
 Problem Reporting
 1. Motherboard/BIOS version/processor/graphics/OS and version
 2. Copy of dsdt (if edited)
-3. Copy of HDMI audio SSDT ((if installed)
-4. Copy of IORegistryExplorer/IOJones
-5. Post w/attachments to:
-5a. http://www.tonymacx86.com/hdmi-audio/108302-haswell-hdmi-audio.html#post658883
-5b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
+3. Copy of HDMI audio SSDT (if installed)
+4. Copy of IORegistryExplorer
+
+Troubleshooting/Post w/attachments 2-4, above
+1. Mavericks/10.9
+1a. http://www.tonymacx86.com/hdmi-audio/112469-m-hdmi-audio.html
+1b. http://www.insanelymac.com/forum/topic/292999-mavericks-applehda-hdmi-audio/
+2. Mountain Lion/10.8
+2a.http://www.tonymacx86.com/hdmi-audio/70762-mountain-lion-hdmi-audio-ami-dsdt.html
+2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
 
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf
