@@ -1,10 +1,10 @@
 # Maintained by: toleda for: github.com/toleda/audio_hdmi
-# File: has1-8_series_hdmi_audio-1_v3.0
+# File: has1-dsdt-ami-8_series_hdmi_audio-1_v3.0
 # Credit: PikeRAlpha
 
 # Desktop AMD/Nvidia/HD5K HDMI audio dsdt edits (Audio ID: 1)
 # Enables HD5K/AMD and HD5K/Nvidia AirPlay Mirroring.
-# Azul/Framebuffer: 0D22 0003 Mac mini??? - -FB/DP connector/port 0x7
+# Azul/Framebuffer: 0D22 0003 iMac14 - FB edits required for HDMI audio
 #
 # NOTE: Run this patch file only once on a dsdt.  
 # If you must run this patch again: delete Steps 1, 2 and 3, 
@@ -124,4 +124,4 @@ begin
     }\n
 end;
 into definitionblock code_regex . insert
-begin Store ("hhas1-8_series_hdmi_audio-1_v3.0 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has1-dsdt-ami-8_series_hdmi_audio-1_v3.0 dsdt edits, github.com/toleda", Debug) end

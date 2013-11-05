@@ -1,0 +1,29 @@
+# Maintained by: toleda for: github.com/toleda/audio_hdmi
+# File: has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.0
+# Credit: PikeRAlpha
+# 
+# Adds Device (P0P2) 
+#
+# NOTE: Run this patch file only once on a dsdt.  
+#
+# Tasks:
+# 1. Add device P0P2 to PCI0
+into device name_adr 0x00010000 set_label begin P0P2 end;
+into method label _DSM parent_adr 0x00010000 remove_entry;
+into device label PCI0 insert
+begin
+Device (P0P2)\n
+{\n
+    Name (_ADR, 0x00010000)\n
+    Method (_PRT, 0, NotSerialized)\n
+    {\n
+	    If (PICM)\n
+	    {\n
+            	Return (AR02 ())\n
+	    }\n
+            Return (PR02 ())\n
+    }\n
+}\n
+end;
+into definitionblock code_regex . insert
+begin Store ("has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.0 dsdt edits, github.com/toleda", Debug) end

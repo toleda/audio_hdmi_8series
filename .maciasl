@@ -1,3 +1,4 @@
 8series-Clean Compile	DSDT	Patches/8series-Clean_Compile/has0-8series-Clean_Compile.txt
 Desktop-HD5K/AMD/Nvidia-A1	DSDT	Patches/8series-Desktop/has1-dsdt-ami-8_series_hdmi_audio-1.txt
 Desktop-HD5K/AMD/Nvidia-A2	DSDT	Patches/8series-Desktop/has1-dsdt-ami-8_series_hdmi_audio-2.txt
+Desktop-add_dsdt-P0P2	DSDT	Patches/8series-Desktop/has2-dsdt-ami-8_series_add_dsdt-p0p2.txt
