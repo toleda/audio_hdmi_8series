@@ -1,10 +1,75 @@
 # Maintained by: toleda for: github.com/toleda_hdmi_hd4000
 # File: has0-8series-Clean_Compile.txt_v1.0
-# Credits: http://olarila.com/forum/patches.php, PJALM http://repo.pjalm.info/general
+# Credits: PJALM http://repo.pjalm.info/general
 #
 # Complier fixes for newly extracted AMI/8series/dsdts
-# TBA
+#
+## Method RDGI in _SB
+into method label RDGI parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label RDGI parent_label _SB remove_entry;
+into scope label _SB insert begin Method (RDGI, 1, Serialized)\n{\n\n} end;
+into method label RDGI parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+## Method RDGP in _SB
+into method label RDGP parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label RDGP parent_label _SB remove_entry;
+into scope label _SB insert begin Method (RDGP, 1, Serialized)\n{\n\n} end;
+into method label RDGP parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+## Method WTIN in _SB
+into method label WTIN parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label WTIN parent_label _SB remove_entry;
+into scope label _SB insert begin Method (WTIN, 2, Serialized)\n{\n\n} end;
+into method label WTIN parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+## Method WTGP in _SB
+into method label WTGP parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label WTGP parent_label _SB remove_entry;
+into scope label _SB insert begin Method (WTGP, 2, Serialized)\n{\n\n} end;
+into method label WTGP parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+## Method WPGP in _SB
+into method label WPGP parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label WPGP parent_label _SB remove_entry;
+into scope label _SB insert begin Method (WPGP, 2, Serialized)\n{\n\n} end;
+into method label WPGP parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+## Method GP2N in _SB
+into method label GP2N parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label GP2N parent_label _SB remove_entry;
+into scope label _SB insert begin Method (GP2N, 2, Serialized)\n{\n\n} end;
+into method label GP2N parent_label _SB code_regex .* replace_matched begin %8 end;
+
+## Method GP2A in _SB
+into method label GP2A parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label GP2A parent_label _SB remove_entry;
+into scope label _SB insert begin Method (GP2A, 2, Serialized)\n{\n\n} end;
+into method label GP2A parent_label _SB code_regex .* replace_matched begin %8 end;
+
+## Method GP2B in _SB
+into method label GP2B parent_label _SB code_regex ([\s\S]*) store_%8;
+into method label GP2B parent_label _SB remove_entry;
+into scope label _SB insert begin Method (GP2B, 2, Serialized)\n{\n\n} end;
+into method label GP2B parent_label _SB code_regex .* replace_matched begin %8 end;
+#
+# Fix ADBG
+into method label ADBG replace_content begin
+If (CondRefOf (MDBG))\n
+{\n
+    Return (MDBG)\n
+}\n
+Return (Zero)\n
+end;
+#
+# Change _T_0 to T_0 
+into_all all code_regex _T_0 replaceall_matched begin T_0 end;
+into_all all code_regex _T_1 replaceall_matched begin T_1 end;
+into_all all code_regex _T_2 replaceall_matched begin T_2 end;
+into_all all code_regex _T_3 replaceall_matched begin T_3 end;
+into_all all code_regex _T_4 replaceall_matched begin T_4 end;
+into_all all code_regex _T_5 replaceall_matched begin T_5 end;
+into_all all code_regex _T_6 replaceall_matched begin T_6 end;
 #
 # Debug
-# into definitionblock code_regex . insert
-# begin Store ("has0-8series-Clean_Compile_v1.0 dsdt edits, github.com/toleda", Debug) end
+into definitionblock code_regex . insert
+begin Store ("has0-8series-Clean_Compile_v1.0 dsdt edits, github.com/toleda", Debug) end
