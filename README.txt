@@ -38,6 +38,10 @@ Two ML Haswell HDMI audio enabling techniques - select one
 1. ML: Haswell HDMI Audio dsdt (with dsdt edits) 
 2. ML: Haswell HDMI Audio ssdt (with native dsdt)
 
+Location.aml - dsdt.aml/ssdt.aml installation folder
+1. Chameleon/Chimera - Extra/
+2. Clover - EFI/Clover/ACPI/Patched/
+
 ML: Haswells HDMI Audio dsdt
 1. MaciASL - http://sourceforge.net/projects/maciasl/?source=navbar
 2. Configuration: MaciASL/Preferences/Sources/+/  (copy/paste URL, don't click)
@@ -52,14 +56,14 @@ Usage
 6. MaciASL/Compile
 7. MaciASL/File/Save As…/ACPI Machine Language Binary/dsdt.aml
 
-Installation - edited dsdt.aml to Extra
+Installation - edited dsdt.aml to Location.aml 
 1. MaciASL/File/Save As…/ACPI Machine Language Binary/Extra/dsdt.aml (add extension)
 2. Rebuild kernel cache
 3. Restart
 
 ML: Haswell HDMI Audio ssdt
 1. https://github.com/toleda/audio_hdmi_8series/tree/master/ssdt_8series
-2. Copy Downloads/audio_ssdt-hdmi.. . ./SSDT-1.aml to Extra
+2. Copy Downloads/audio_ssdt-hdmi.. . ./SSDT-1.aml to Location.aml
 2a. If Extra/SSDT.aml is present, install SSDT-1.aml as is: Extra/SSDT-1.aml
 2b. If no Extra/SSDT.aml, rename SSDT-1.aml to SSDT.aml and install as: Extra/SSDT.aml
 2c. The 1st SSDT is SSDT, 2nd is SSDT-1, 3rd is SSDT-2, etc.; no gaps
