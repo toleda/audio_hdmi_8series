@@ -99,8 +99,8 @@ OS X Haswell HD4600/AMD/Nvidia HDMI Audio
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
     has1-dsdt-ami-8_series_hdmi_audio-2.txt
 1c. ssdts
-    audio_ssdt-hdmi-ami_hd5k-amd-nvidia-1_v1.zip
-    audio_ssdt-hdmi-ami_hd5k-amd-nvidia-2_v1.zip
+    audio_ssdt-hdmi-ami_hd5k-amd-nvidia-1_v2.zip
+    audio_ssdt-hdmi-ami_hd5k-amd-nvidia-2_v2.zip
 
 toleda
 https://github.com/toleda/audio_hdmi_8series
