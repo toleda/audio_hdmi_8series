@@ -91,7 +91,7 @@ Device (IGPU)\n
 	}\n
 }\n
 end;
-#6. Add device HDAU (HD5K HDMI audio - Part 2/2)
+# 6. Add device HDAU (HD5K HDMI audio - Part 2/2)
 into device name_adr 0x00030000 set_label begin HDAU end;
 into device label PCI0 insert
 begin

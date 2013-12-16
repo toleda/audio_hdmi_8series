@@ -1,0 +1,81 @@
+# Maintained by: toleda for: github.com/toleda/audio_hdmi
+# File: has1-dsdt-ami-8_series_nuc_hdmi_audio-1_v1.0
+# Credit: PikeRAlpha
+
+# Desktop AMD/Nvidia/HD5K HDMI audio dsdt edits (Audio ID: 1)
+# Enables HD5K/AMD and HD5K/Nvidia AirPlay Mirroring.
+# Azul/Framebuffer: 0D22 0003 iMac14 - FB edits required for HDMI audio
+#
+# NOTE: Run this patch file only once on a dsdt.  
+# If you must run this patch again: delete Steps 1, 2 and 3, 
+# patch with Steps 4, 5, 6 and 7 only.
+#
+# Tasks:
+# 1. Rename GFX0 devices to IGPU - Verify IOReg/GFXO@2
+# 2. Insert HDMI audio injection into device IGPU (HD5K HDMI audio - Part 1/2)
+# 3. Add device HDAU (HD5K HDMI audio - Part 2/2)
+# 4. Insert audio injection into device HDEF (HDEF audio)
+#
+# Run this patch once for any dsdt.
+# Delete/Comment out to Step 1 to patch the same dsdt again.
+#
+# 1. Rename GFX0 devices to IGPU
+into device label GFX0 set_label begin IGPU end;
+into_all all code_regex GFX0 replaceall_matched begin IGPU end;
+into scope label _SB.PCI0.GFX0 set_label begin _SB.PCI0.IGPU end;ß
+into scope label \_SB.PCI0.GFX0 set_label begin \_SB.PCI0.IGPU end;
+# 
+# To patch more than once, delete from "Run this patch once …" (above) to here.
+#
+# 2. Add device IGPU and inject Azul framebuffer(HD5K HDMI audio - Part 1/2)
+into device name_adr 0x00020000 set_label begin IGPU end;
+into device label PCI0 insert
+begin
+Device (IGPU)\n
+{\n
+	Name (_ADR, 0x00020000)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+	        "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x22, 0x0D },\n
+                "hda-gfx", Buffer() { "onboard-1" },\n
+	    })\n
+	}\n
+}\n
+end;
+# 3. Add device HDAU (HD5K HDMI audio - Part 2/2)
+into device name_adr 0x00030000 set_label begin HDAU end;
+into device label PCI0 insert
+begin
+Device (HDAU)\n
+{\n
+	Name (_ADR, 0x00030000)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+                "layout-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+                "hda-gfx", Buffer() { "onboard-1" },\n
+	    })\n
+	}\n
+}\n
+end;
+# 4. Insert audio injection into device HDEF (HDEF audio)
+into method label _DSM parent_adr 0x001B0000 remove_entry;
+into device name_adr 0x001B0000 insert
+begin
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+	    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+	    Return (Package()\n
+	    {\n
+                "layout-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+                "PinConfigurations", Buffer(Zero) {},\n
+	    })\n
+    }\n
+end;
+into definitionblock code_regex . insert
+begin Store ("has1-dsdt-ami-8_series_nuc_hdmi_audio-1_v1.0 dsdt edits, github.com/toleda", Debug) end
