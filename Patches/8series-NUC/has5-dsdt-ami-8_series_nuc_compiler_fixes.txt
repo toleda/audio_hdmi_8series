@@ -18,5 +18,18 @@ into method label _PS0 parent_label TPD7 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) re
 into method label _PS0 parent_label TPD8 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
 into method label _PS0 parent_label WI01 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
 into method label _PS3 parent_label WI01 code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into_all all code_regex _T_ replaceall_matched begin T_ end;
+into_all all code_regex (Acquire\s\(MUT0,\s0x)....\) replace_matched begin Acquire (MUT0, 0xFFFF) end;
+into method label _HRV set_label begin HRV end;
+into method label PR2S parent_label XHC insert begin Return (Zero) end;
+into method label _PS0 parent_label XHC insert begin Return (Zero) end;
+into method label _PS3 parent_label XHC insert begin Return (Zero) end;
+into method label SPL1 insert begin Return (Zero) end;
+into_all all code_regex If\s\(TCMF\)\s\{\} replace_matched begin 
+If (TCMF)\n
+{\n
+    Return (Zero)\n
+}\n
+end;
 into definitionblock code_regex . insert
 begin Store ("has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.0 dsdt edits, github.com/toleda", Debug) end
