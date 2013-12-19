@@ -1,0 +1,22 @@
+# Maintained by: toleda for: github.com/toleda/audio_hdmi
+# File: has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.0
+# Credit: SJ_UnderWater, PJALM
+#
+# Intel NUC dsdt complier error fixes; allows NUC HDMI audio and other dsdt patches
+#
+into device label PCI0 code_regex (\s+Zero){2,} remove_matched;
+into device label SIO1 code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
+into device label CIRP code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
+into_all method label ADBG code_regex (?<=Return\s\(MDBG\))\s+Arg0 remove_matched;
+into method label _PS0 parent_label XHC code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label XHC code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label I2C0 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label I2C0 code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label I2C1 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label SDHC code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label TPD7 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label TPD8 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label WI01 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label WI01 code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into definitionblock code_regex . insert
+begin Store ("has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.0 dsdt edits, github.com/toleda", Debug) end
