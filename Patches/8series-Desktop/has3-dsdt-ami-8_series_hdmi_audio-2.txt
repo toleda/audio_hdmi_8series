@@ -1,5 +1,5 @@
 # Maintained by: toleda for: github.com/toleda/audio_hdmi
-# File: has1-dsdt-ami-8_series_hdmi_audio-2_v3.0
+# File: has3-dsdt-ami-8_series_hdmi_audio-2_v3.0
 # Credit: PikeRAlpha
 
 # Desktop AMD/Nvidia/HD5K HDMI audio dsdt edits (Audio ID: 1)
@@ -124,4 +124,4 @@ begin
     }\n
 end;
 into definitionblock code_regex . insert
-begin Store ("has1-dsdt-ami-8_series_hdmi_audio-2_v3.0 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has3-dsdt-ami-8_series_hdmi_audio-2_v3.0 dsdt edits, github.com/toleda", Debug) end

@@ -93,11 +93,14 @@ OS X Haswell HD4600/AMD/Nvidia HDMI Audio
     audio_hdmi_hd5k_azul-90_patch.command.zip
     audio_hdmi_hd5k_hda-90_patch.command.zip
     audio_hdmi_hd5k_azul-85_patch.command.zip
-    audio_hdmi_hd5k_hda-85_patch.command.zip    
+    audio_hdmi_hd5k_hda-85_patch.command.zip
+    audio_nuc_hdmi-hd5k-azul-90_patch.command.zip    
 1b. Patches (dsdt)
-    has0-8series-Clean_Compile - fix native dsdt compiler errors (TBA)
+    has0-8series-Clean_Compile - fix native dsdt compiler errors
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
-    has1-dsdt-ami-8_series_hdmi_audio-2.txt
+    has2-dsdt-ami-8_series_hdmi_audio-2.txt
+    has3-dsdt-ami-8_series_add_dsdt-p0p2
+    has4-dsdt-8_series_nuc_hdmi_audio-1.txt
 1c. ssdts
     audio_ssdt-hdmi-ami_hd5k-amd-nvidia-1_v2.zip
     audio_ssdt-hdmi-ami_hd5k-amd-nvidia-2_v2.zip
