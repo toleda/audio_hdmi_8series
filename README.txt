@@ -15,7 +15,9 @@ Requirements (this version, Haswell HDMI audio)
 2b. OS X 10.9/AppleHDA_v2.5.2 and newer.
 
 Details
-[Guide] Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf
+[Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf
+[Guide]-NUC-hdmi_audio_(dsdt_or_ssdt)_v1.pdf
+[Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf
 
 Notes
 1. Required kext patches:
@@ -88,7 +90,10 @@ Troubleshooting/Post w/attachments 2-4, above
 2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
 
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
-1a. [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf
+1a. guides
+    [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf.zip
+    [Guide]-NUC-hdmi_audio_(dsdt_or_ssdt)_v1.pdf.zip
+    [Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf.zip
 1b. patches (kext)
     audio_hdmi_hd5k_azul-90_patch.command.zip
     audio_hdmi_hd5k_hda-90_patch.command.zip
