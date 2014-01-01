@@ -1,5 +1,5 @@
 # Maintained by: toleda for: github.com/toleda_hdmi_hd4000
-# File: has0-8series-Clean_Compile.txt_v1.0
+# File: has0-8series-Clean_Compile.txt_v1.1
 # Credits: PJALM http://repo.pjalm.info/general
 #
 # Complier fixes for newly extracted AMI/8series/dsdts
@@ -61,6 +61,12 @@ If (CondRefOf (MDBG))\n
 Return (Zero)\n
 end;
 #
+# Fix caps
+into_all all code_regex pnp0c14 replaceall_matched begin PNP0C14 end;
+#
+# Fix SIO1
+into device label SIO1 code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
+#
 # Change _T_0 to T_0 
 into_all all code_regex _T_0 replaceall_matched begin T_0 end;
 into_all all code_regex _T_1 replaceall_matched begin T_1 end;
@@ -72,4 +78,4 @@ into_all all code_regex _T_6 replaceall_matched begin T_6 end;
 #
 # Debug
 into definitionblock code_regex . insert
-begin Store ("has0-8series-Clean_Compile_v1.0 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has0-8series-Clean_Compile_v1.1 dsdt edits, github.com/toleda", Debug) end
