@@ -2,7 +2,7 @@
 # File: has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.0
 # Credit: SJ_UnderWater, PJALM
 #
-# Intel NUC dsdt complier error fixes; allows NUC HDMI audio and other dsdt patches
+# Intel NUC dsdt compiler error fixes; allows NUC HDMI audio and other dsdt patches
 #
 into device label PCI0 code_regex (\s+Zero){2,} remove_matched;
 into device label SIO1 code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
