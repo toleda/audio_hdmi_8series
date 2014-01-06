@@ -1,5 +1,5 @@
 # Maintained by: toleda for: github.com/toleda/audio_hdmi
-# File: has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.1
+# File: has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.2
 # Credit: SJ_UnderWater, PJALM
 #
 # Intel NUC dsdt complier error fixes; allows NUC HDMI audio and other dsdt patches
@@ -46,5 +46,21 @@ If (TCMF)\n
     Return (Zero)\n
 }\n
 end;
+into method label _DSM parent_adr 0x001F0002 remove_entry;
+into device name_adr 0x001F0002 insert
+begin
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+		If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+		Return (Package()\n
+		{\n
+			"device-id", Buffer() { 0x03, 0x8c, 0x00, 0x00 },\n
+			"compatible", Buffer() { "pci8086,8c03" },\n
+			"IOName", Buffer() { "pci8086,8c03" },\n
+			"name", Buffer() { "pci8086,8c03" },\n
+		 })\n
+	}\n
+end;
+
 into definitionblock code_regex . insert
-begin Store ("has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.1 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has5-dsdt-ami-8_series_nuc_compiler_fixes_v1.2 dsdt edits, github.com/toleda", Debug) end
