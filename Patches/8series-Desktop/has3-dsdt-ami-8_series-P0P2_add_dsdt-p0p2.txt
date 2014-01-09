@@ -1,8 +1,8 @@
 # Maintained by: toleda for: github.com/toleda/audio_hdmi
-# File: has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.1
+# File: has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.0
 # Credit: PikeRAlpha
 # 
-# Adds Device (P0P2) 
+# Adds Device (P0P2) to dsdt, verify dsdt/External (\_SB_.PCI0.P0P2)
 #
 # NOTE: Run this patch file only once on a dsdt.  
 #
@@ -15,11 +15,6 @@ begin
 Device (P0P2)\n
 {\n
     Name (_ADR, 0x00010000)\n
-    Method (_PRW, 0, NotSerialized)\n
-            {\n
-		Return (GPRW (0x09, 0x04))\n
-            }\n
-\n
     Method (_PRT, 0, NotSerialized)\n
     {\n
 	    If (PICM)\n
@@ -31,4 +26,4 @@ Device (P0P2)\n
 }\n
 end;
 into definitionblock code_regex . insert
-begin Store ("has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.1 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has2-dsdt-ami-8_series_add_dsdt-p0p2_v1.0 dsdt edits, github.com/toleda", Debug) end

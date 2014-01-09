@@ -1,0 +1,42 @@
+# Maintained by: toleda for: github.com/toleda/audio_hdmi
+# File: has2-dsdt-ami-8_series-PEG0_add_dsdt-p0p2_v1.1
+# Credit: PikeRAlpha
+# 
+# Adds Device (P0P2) to dsdt, verify dsdt/External (\_SB_.PCI0.PEG0)
+#
+# NOTE: Run this patch file only once on a dsdt.  
+#
+# Tasks:
+# 1. Rename PEGO to P0P2
+# 2. Add device P0P2 to PCI0
+#
+# 1. Rename device PEGO to device P0P2
+into scope label _SB.PCI0.PEG0.P0P2 set_label begin _SB.PCI0.P0P2.GFX0 end;
+into device label PEG0 set_label begin P0P2 end;
+into scope label _SB.PCI0.PEG0 set_label begin _SB.PCI0.P0P2 end;
+into_all all code_regex PEG0 replaceall_matched begin P0P2 end
+# 2. Add device P0P2 to PCI0
+into device name_adr 0x00010000 set_label begin P0P2 end;
+into method label _DSM parent_adr 0x00010000 remove_entry;
+into device label PCI0 insert
+begin
+Device (P0P2)\n
+{\n
+    Name (_ADR, 0x00010000)\n
+    Method (_PRW, 0, NotSerialized)\n
+            {\n
+		Return (GPRW (0x09, 0x04))\n
+            }\n
+\n
+    Method (_PRT, 0, NotSerialized)\n
+    {\n
+	    If (PICM)\n
+	    {\n
+            	Return (AR02 ())\n
+	    }\n
+            Return (PR02 ())\n
+    }\n
+}\n
+end;
+into definitionblock code_regex . insert
+begin Store ("has2-dsdt-ami-8_series-PEG0_add_dsdt-p0p2_v1.1 dsdt edits, github.com/toleda", Debug) end
