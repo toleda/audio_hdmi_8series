@@ -1,9 +1,43 @@
 # Maintained by: toleda for: github.com/toleda_hdmi_hd4000
-# File: has0-8series-Clean_Compile.txt_v1.1
+# File: has0-8series-Clean_Compile.txt_v1.2
 # Credits: PJALM http://repo.pjalm.info/general
 #
 # Complier fixes for newly extracted AMI/8series/dsdts
 #
+into device label PCI0 code_regex (\s+Zero){2,} remove_matched;
+into device label SIO1 code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
+into device label CIRP code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
+into_all method label ADBG code_regex (?<=Return\s\(MDBG\))\s+Arg0 remove_matched;
+into method label _PS0 parent_label XHC code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label XHC code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label I2C0 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label I2C0 code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label I2C1 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label SDHC code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label TPD7 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label TPD8 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS0 parent_label WI01 code_regex (?<=\{)(\s+PS0X\s+)(?=\}) remove_matched;
+into method label _PS3 parent_label WI01 code_regex (?<=\{)(\s+PS3X\s+)(?=\}) remove_matched;
+into method label SPL1 insert begin Return (Zero) end;
+into method label PR2S parent_label XHC insert begin Return (Zero) end;
+into method label _PS0 parent_label XHC insert begin Return (Zero) end;
+into method label _PS3 parent_label XHC insert begin Return (Zero) end;
+into method label _DSM parent_label SHUB insert begin Return (Zero) end;
+into method label _DSM parent_label DFUD insert begin Return (Zero) end;
+into method label _DSM parent_label TPD4 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL0 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL1 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL2 insert begin Return (Zero) end;
+into method label _DSM parent_label TPL3 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD0 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD1 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD2 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD3 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD7 insert begin Return (Zero) end;
+into method label _DSM parent_label TPD8 insert begin Return (Zero) end;
+into_all method label _DEP code_regex (Return\s\(Package\s\()0x00(\)\s\{\}\)) replace_matched begin %1Zero%2 end;
+into_all method label _DEP set_label begin DEP end;
+into_all method label _HRV set_label begin HRV end;
 ## Method RDGI in _SB
 into method label RDGI parent_label _SB code_regex ([\s\S]*) store_%8;
 into method label RDGI parent_label _SB remove_entry;
@@ -60,6 +94,16 @@ If (CondRefOf (MDBG))\n
 }\n
 Return (Zero)\n
 end;
+# Fix TCNF
+into_all all code_regex If\s\(TCMF\)\s\{\} replace_matched begin 
+If (TCMF)\n
+{\n
+    Return (Zero)\n
+}\n
+end;
+#
+# Fix MUT0
+into_all all code_regex (Acquire\s\(MUT0,\s0x)....\) replace_matched begin Acquire (MUT0, 0xFFFF) end;
 #
 # Fix caps
 into_all all code_regex pnp0c14 replaceall_matched begin PNP0C14 end;
@@ -68,14 +112,8 @@ into_all all code_regex pnp0c14 replaceall_matched begin PNP0C14 end;
 into device label SIO1 code_regex 0x00(,\s+//\s+L) replaceall_matched begin 0x01%1 end;
 #
 # Change _T_0 to T_0 
-into_all all code_regex _T_0 replaceall_matched begin T_0 end;
-into_all all code_regex _T_1 replaceall_matched begin T_1 end;
-into_all all code_regex _T_2 replaceall_matched begin T_2 end;
-into_all all code_regex _T_3 replaceall_matched begin T_3 end;
-into_all all code_regex _T_4 replaceall_matched begin T_4 end;
-into_all all code_regex _T_5 replaceall_matched begin T_5 end;
-into_all all code_regex _T_6 replaceall_matched begin T_6 end;
+into_all all code_regex _T_ replaceall_matched begin T_ end;
 #
 # Debug
 into definitionblock code_regex . insert
-begin Store ("has0-8series-Clean_Compile_v1.1 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has0-8series-Clean_Compile_v1.2 dsdt edits, github.com/toleda", Debug) end
