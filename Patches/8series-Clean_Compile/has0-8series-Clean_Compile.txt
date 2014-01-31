@@ -1,4 +1,4 @@
-# Maintained by: toleda for: github.com/toleda_hdmi_hd4000
+c# Maintained by: toleda for: github.com/toleda/audio_hdmi_8series
 # File: has0-8series-Clean_Compile.txt_v1.2
 # Credits: PJALM http://repo.pjalm.info/general
 #
