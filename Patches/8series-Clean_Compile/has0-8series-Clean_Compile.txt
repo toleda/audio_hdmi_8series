@@ -1,5 +1,5 @@
 c# Maintained by: toleda for: github.com/toleda/audio_hdmi_8series
-# File: has0-8series-Clean_Compile.txt_v1.2
+# File: has0-8series-Clean_Compile.txt_v1.3
 # Credits: PJALM http://repo.pjalm.info/general
 #
 # Complier fixes for newly extracted AMI/8series/dsdts
@@ -86,6 +86,11 @@ into method label GP2B parent_label _SB remove_entry;
 into scope label _SB insert begin Method (GP2B, 2, Serialized)\n{\n\n} end;
 into method label GP2B parent_label _SB code_regex .* replace_matched begin %8 end;
 #
+# Fix Name already exist is scope...
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG0\) removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG0.PEGP\) removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG1\) removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG2\) removeall_matched;
 # Fix ADBG
 into method label ADBG replace_content begin
 If (CondRefOf (MDBG))\n
@@ -116,4 +121,4 @@ into_all all code_regex _T_ replaceall_matched begin T_ end;
 #
 # Debug
 into definitionblock code_regex . insert
-begin Store ("has0-8series-Clean_Compile_v1.2 dsdt edits, github.com/toleda", Debug) end
+begin Store ("has0-8series-Clean_Compile_v1.3 dsdt edits, github.com/toleda", Debug) end
