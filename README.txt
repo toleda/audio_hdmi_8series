@@ -89,6 +89,10 @@ Troubleshooting/Post w/attachments 2-4, above
 2a.http://www.tonymacx86.com/hdmi-audio/70762-mountain-lion-hdmi-audio-ami-dsdt.html
 2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
 
+Credit:
+PikeRAlpha https://pikeralpha.wordpress.com/2013/09/19/haswell-hdau-solution/
+bcc9 Post #11 - http://www.insanelymac.com/forum/topic/290783-intel-hd-graphics-4600-haswell-working-displayport/?p=1934889
+
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. guides
     [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf.zip
