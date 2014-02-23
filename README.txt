@@ -15,7 +15,7 @@ Requirements (this version, Haswell HDMI audio)
 2b. OS X 10.9/AppleHDA_v2.5.2 and newer.
 
 Details
-[Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf
+[Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.3.pdf
 [Guide]-NUC-hdmi_audio_(dsdt_or_ssdt)_v1.pdf
 [Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf
 
@@ -49,6 +49,10 @@ DSDT - Haswell HDMI Audio (with dsdt edits)
 2. Configuration: MaciASL/Preferences/Sources/+/  (copy/paste URL, don't click)
 3. URL: https://raw.github.com/toleda/audio_hdmi_8series/master
 
+Verify dsdt/Device (P0P2) exists.  If no Device (P0P2), apply Patch 1 or 2.
+1. Search: P0P2, If P0P2 found, apply Patch/Desktop-add_dsdt/PCI0/P0P2 (w/ssdt/P0P2)
+2. Search: PEG0, If PEG0 found, apply Patch/Desktop-add_dsdt/PCI0/P0P2 (w/ssdt/PEGO)
+
 Usage
 1. If no dsdt; extract dsdt, MaciASL/File/New from ACPI/DSDT
 2. MaciASL/File/Open dsdt
@@ -75,6 +79,9 @@ SSDT - Haswell HDMI Audio (with native dsdt)
 4. Rebuild kernel cache
 5. Restart
 
+AppleIntelFramebufferAzul.kext Edits/Scripts
+1.See https://github.com/toleda/graphics_Intel_framebuffers
+
 Problem Reporting
 1. Motherboard/BIOS version/processor/graphics/OS and version
 2. Copy of dsdt (if edited)
@@ -95,7 +102,7 @@ bcc9 Post #11 - http://www.insanelymac.com/forum/topic/290783-intel-hd-graphics-
 
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. guides
-    [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.2.pdf.zip
+    [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.3.pdf.zip
     [Guide]-NUC-hdmi_audio_(dsdt_or_ssdt)_v1.pdf.zip
     [Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf.zip
 1b. patches (kext)
@@ -108,11 +115,15 @@ OS X Haswell HD4600/AMD/Nvidia HDMI Audio
     has0-8series-Clean_Compile - fix native dsdt compiler errors
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
     has2-dsdt-ami-8_series_hdmi_audio-2.txt
-    has3-dsdt-ami-8_series_add_dsdt-p0p2
-    has4-dsdt-8_series_nuc_hdmi_audio-1.txt
+    has3-dsdt-ami-8_series-P0P2_add_dsdt-p0p2.txt
+    has4-dsdt-ami-8_series-PEG0_add_dsdt-p0p2.txt
+    has5-dsdt-8_series_nuc_compiler_fixes.txt
+    has6-dsdt-8_series_nuc_hdmi_audio-1.txt
 1c. ssdts
     audio_ssdt-hdmi-ami_hd5k-amd-nvidia-1_v2.zip
     audio_ssdt-hdmi-ami_hd5k-amd-nvidia-2_v2.zip
+    audio_ssdt-hdmi-ami-no_p0p2_hd5k-amd-nvidia-1_v1.zip
+    audio_ssdt-hdmi-nuc_hd5k-1_v1.zip
 
 toleda
 https://github.com/toleda/audio_hdmi_8series

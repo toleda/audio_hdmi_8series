@@ -6,6 +6,10 @@
 # Enables HD5K/AMD and HD5K/Nvidia AirPlay Mirroring.
 # Azul/Framebuffer: 0D22 0003 iMac14 - FB edits required for HDMI audio
 #
+# Verify dsdt/Device (P0P2) exists.  If no Device (P0P2), apply Patch below first:
+# 1. Search: P0P2, If P0P2 found, apply Patch/Desktop-add_dsdt/PCI0/P0P2 (w/ssdt/P0P2)
+# 2. Search: PEG0, If PEG0 found, apply Patch/Desktop-add_dsdt/PCI0/P0P2 (w/ssdt/PEGO)
+#
 # NOTE: Run this patch file only once on a dsdt.  
 # If you must run this patch again: delete Steps 1, 2 and 3, 
 # patch with Steps 4, 5, 6 and 7 only.
