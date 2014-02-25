@@ -23,7 +23,8 @@ Notes
 1. Required kext patches:
 1b Mavericks/10.9 and newer
 1a1. Haswell/AppleHDA.kext_v2.5.2 only edit, use audio_hdmi_hd5K-hda-90_patch.command
-1a2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-90_patch.command
+1a2. Haswell/AppleIntelFramebufferAzul.kext, see AppleIntelFramebufferAzul.kext Edits/
+     Scripts (below)
 1b Mountain Lion/10.8.5
 1b1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
 1b2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
@@ -106,7 +107,7 @@ OS X Haswell HD4600/AMD/Nvidia HDMI Audio
     [Guide]-NUC-hdmi_audio_(dsdt_or_ssdt)_v1.pdf.zip
     [Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf.zip
 1b. patches (kext)
-    audio_hdmi_hd5k_azul-90_patch.command.zip
+    audio_hdmi_hd5k_azul-90_patch.command.zip (removed)
     audio_hdmi_hd5k_hda-90_patch.command.zip
     audio_hdmi_hd5k_azul-85_patch.command.zip
     audio_hdmi_hd5k_hda-85_patch.command.zip
