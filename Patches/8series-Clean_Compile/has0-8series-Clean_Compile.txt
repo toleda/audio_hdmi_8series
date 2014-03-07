@@ -88,6 +88,7 @@ into method label GP2B parent_label _SB code_regex .* replace_matched begin %8 e
 #
 # Fix Name already exist is scope...
 into definitionblock code_regex External\s\(_SB_.PCI0.PEG0\) removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG0.PEGP)\) removeall_matched;
 into definitionblock code_regex External\s\(_SB_.PCI0.PEG1\) removeall_matched;
 into definitionblock code_regex External\s\(_SB_.PCI0.PEG2\) removeall_matched;
 # Fix ADBG
