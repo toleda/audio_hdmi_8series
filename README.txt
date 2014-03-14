@@ -27,7 +27,7 @@ Notes
 1b Mountain Lion/10.8.5
 1b1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
 1b2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
-2. Haswell HDMI audio woks with two ML Audio IDs
+2. Haswell HDMI audio/two Audio IDs
 2a. Audio_ID: 1 supports HD4600/AMD/Nvidia HDMI and 3, 5 and 6 port ALC8xx onboard audio
 2b. Audio_ID: 2 supports HD4600/AMD/Nvidia HDMI and 3 port ALC8xx onboard audio
 3. For unsupported motherboard audio codecs, the native AppleHDA.kext supports HDMI audio only when configured properly (Notes 1 and 2, as appropriate)
