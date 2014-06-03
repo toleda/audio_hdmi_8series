@@ -33,12 +33,15 @@ into device label GFX0 set_label begin IGPU end;
 into_all all code_regex GFX0 replaceall_matched begin IGPU end;
 into scope label _SB.PCI0.GFX0 set_label begin _SB.PCI0.IGPU end;ß
 into scope label \_SB.PCI0.GFX0 set_label begin \_SB.PCI0.IGPU end;
-# 3. Rename device P0P2 to device PEGP
+# 3. Rename device P0P2/PEG0 to device PEGP
 into scope label _SB.PCI0.P0P2.PEGP set_label begin _SB.PCI0.PEGP.GFX0 end;
+into scope label _SB.PCI0.PEG0.PEGP set_label begin _SB.PCI0.PEGP.GFX0 end;
 into_all all code_regex PEGP replaceall_matched begin GFX0 end;
 into device label P0P2 set_label begin PEGP end;
 into scope label _SB.PCI0.P0P2 set_label begin _SB.PCI0.PEGP end;
-into_all all code_regex P0P2 replaceall_matched begin PEGP end;
+into_all all code_regex PEG0 replaceall_matched begin PEGP end;
+into scope label _SB.PCI0.PEG0 set_label begin _SB.PCI0.PEGP end;
+into_all all code_regex PEG0 replaceall_matched begin PEGP end;
 # 
 # To patch more than once, delete from "Run this patch once …" (above) to here.
 #
