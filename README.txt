@@ -3,6 +3,8 @@ audio_hdmi_8series
 OS X Haswell/8 Series/Socket 1150 - HD4600/AMD/Nvidia HDMI Audio
 With or Without DSDT Edits
 
+Update: 10.9.4 requires new AppleHDA patch for OS X Haswell/HD4600 HDMI audio. See Note, 1a, below.  The v2 patch supports 10.9 and newer. Credit TimeWalker75a
+
 HDMI audio for OS X Haswell HD4600 systems with either: 1. HDMI audio edited dsdt or 2. the Haswell HDMI audio ssdt. Both techniques enable native Haswell graphics power management.  Haswell HDMI audio is not native; AppleHDA.kext and AppleIntelFramebufferAzul.kext require edits (Note 1 and 2, below).
 Credit, PikeRAlpha for both fixes.
 
@@ -11,8 +13,8 @@ Supported HDMI audio graphics systems are AMD discrete graphics cards (HD5xxx, H
 Requirements (this version, Haswell HDMI audio)
 1. AMI Haswell/8 Series/Socket 1150 Intel motherboard
 2. Supported OS X versions:
-2a. OS X 10.8.5/AppleHDA_v2.4.7 and newer.
-2b. OS X 10.9/AppleHDA_v2.5.2 and newer.
+2a. OS X 10.9/AppleHDA_v2.5.2 and newer.
+2b. OS X 10.8.5/AppleHDA_v2.4.7 and newer.
 
 Details
 [Guide]-Haswell-hdmi_audio_(dsdt_or_ssdt)_v1.3.pdf
@@ -21,12 +23,15 @@ Details
 
 Notes
 1. Required kext patches:
-1b Mavericks/10.9 and newer
-1a1. Haswell/AppleHDA.kext_v2.5.2 only edit, use audio_hdmi_hd5K-hda-90_patch.command
+1a Mavericks/10.9 and newer
+1a1. Haswell/AppleHDA.kext_v2.5.2 only edit, use audio_hdmi_hd5K-hda-90_v2_patch.command
 1a2. Haswell/AppleIntelFramebufferAzul.kext, see AppleIntelFramebufferAzul.kext Edits/Scripts (below)
-1b Mountain Lion/10.8.5
-1b1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
-1b2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
+1b Mavericks/10.9 through 10.9.3
+1b1. Haswell/AppleHDA.kext_v2.5.2 only edit, use audio_hdmi_hd5K-hda-90_patch.command
+1b2. Haswell/AppleIntelFramebufferAzul.kext, see AppleIntelFramebufferAzul.kext Edits/Scripts (below)
+1c Mountain Lion/10.8.5
+1c1. Haswell/AppleHDA.kext_v2.4.7 only edit, use audio_hdmi_hd5K-hda-85_patch.command
+1c2. Haswell/AppleIntelFramebufferAzul.kext, use audio_hdmi_hd5k-azul-85_patch.command
 2. Haswell HDMI audio/two Audio IDs
 2a. Audio_ID: 1 supports HD4600/AMD/Nvidia HDMI and 3, 5 and 6 port ALC8xx onboard audio
 2b. Audio_ID: 2 supports HD4600/AMD/Nvidia HDMI and 3 port ALC8xx onboard audio
@@ -99,6 +104,7 @@ Troubleshooting/Post w/attachments 2-4, above
 Credit:
 PikeRAlpha https://pikeralpha.wordpress.com/2013/09/19/haswell-hdau-solution/
 bcc9 Post #11 - http://www.insanelymac.com/forum/topic/290783-intel-hd-graphics-4600-haswell-working-displayport/?p=1934889
+TimeWalker75a Post #118, http://www.insanelymac.com/forum/topic/290783-intel-hd-graphics-4600-haswell-working-displayport/?p=1949558
 
 OS X Haswell HD4600/AMD/Nvidia HDMI Audio
 1a. guides
@@ -107,10 +113,11 @@ OS X Haswell HD4600/AMD/Nvidia HDMI Audio
     [Case_Studies]_AMD-HD7xxx_HDMI_Audio_v1.pdf.zip
 1b. patches (kext)
     audio_hdmi_hd5k_azul-90_patch.command.zip (removed)
+    audio_hdmi_hd5K-hda-90_v2_patch.command
     audio_hdmi_hd5k_hda-90_patch.command.zip
     audio_hdmi_hd5k_azul-85_patch.command.zip
     audio_hdmi_hd5k_hda-85_patch.command.zip
-    audio_nuc_hdmi-hd5k-azul-90_patch.command.zip    
+    audio_nuc_hdmi-hd5k-azul-90_patch.command.zip  
 1b. Patches (dsdt)
     has0-8series-Clean_Compile - fix native dsdt compiler errors
     has1-dsdt-ami-8_series_hdmi_audio-1.txt
