@@ -4,5 +4,5 @@ AMI-HD4600-AMD-Nvidia-A2	DSDT	Patches/8series-Desktop/has2-dsdt-ami-8_series_hdm
 AMI-add_dsdt/PCI0/P0P2 (w/ssdt/P0P2)	DSDT	Patches/8series-Desktop/has3-dsdt-ami-8_series-P0P2_add_dsdt-p0p2.txt
 AMI-add_dsdt/PCI0/P0P2 (w/ssdt/PEG0)	DSDT	Patches/8series-Desktop/has4-dsdt-ami-8_series-PEG0_add_dsdt-p0p2.txt
 NUC-HD4600-Compiler Fixes	DSDT	Patches/8series-NUC/has5-dsdt-8_series_nuc_compiler_fixes.txt
-NUC-HD4600-A1	DSDT	Patches/8series-Laptop/has6-dsdt-8_series_nuc_hdmi_audio-1.txt
-AMI-HD4600-Laptop-A1	DSDT	Patches/8series-NUC/has7-dsdt-8_series_laptop_hdmi_audio-1.txt
+NUC-HD4600-A1	DSDT	Patches/8series-NUC/has6-dsdt-8_series_nuc_hdmi_audio-1.txt
+AMI-HD4600-Laptop-A1	DSDT	Patches/8series-Laptop/has7-dsdt-8_series_laptop_hdmi_audio-1.txt
