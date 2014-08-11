@@ -1,5 +1,5 @@
 AMI-Clean_Compile-8series	DSDT	Patches/8series-Clean_Compile/has0-8series-Clean_Compile.txt
-AMI-AMD-Nvidia-A1	DSDT	Patches/8series-Desktop/has1-dsdt-ami-8_series_hdmi_audio-1.txt
+AMI-HD4600-AMD-Nvidia-A2	DSDT	Patches/8series-Desktop/has1-dsdt-ami-8_series_hdmi_audio-1.txt
 AMI-HD4600-AMD-Nvidia-A2	DSDT	Patches/8series-Desktop/has2-dsdt-ami-8_series_hdmi_audio-2.txt
 AMI-add_dsdt/PCI0/P0P2 (w/ssdt/P0P2)	DSDT	Patches/8series-Desktop/has3-dsdt-ami-8_series-P0P2_add_dsdt-p0p2.txt
 AMI-add_dsdt/PCI0/P0P2 (w/ssdt/PEG0)	DSDT	Patches/8series-Desktop/has4-dsdt-ami-8_series-PEG0_add_dsdt-p0p2.txt
