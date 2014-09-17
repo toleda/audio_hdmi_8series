@@ -11,6 +11,7 @@ HDMI audio for OS X Haswell HD4600 systems with either: 1. HDMI audio edited dsd
 
 Details
 [Guide]_HD4600-hdmi_audio_(dsdt_or_ssdt)_v2.pdf (above)
+[Guide]_NUC-BRIX-hdmi_audio_(dsdt_or_ssdt)_v2.pdf (above)
 [Guide]_OS_X_hdmi_audio-dsdt_v2, see https://github.com/toleda/audio_hdmi_guides
 [Guide]_OS_X_hdmi_audio-ssdt_v2, see https://github.com/toleda/audio_hdmi_guides
 
