@@ -6,5 +6,5 @@ AMI-add_dsdt/PCI0/P0P2 (w/ssdt/PEG0)	DSDT	Patches/8series-Desktop/has4-dsdt-ami-
 NUC-BRIX-HD4600-Compiler Fixes	DSDT	Patches/8series-NUC-BRIX/has5-dsdt-8_series_nuc_compiler_fixes.txt
 NUC-BRIX-HD4600-A1	DSDT	Patches/8series-NUC-BRIX/has6-dsdt-8_series_nuc_hdmi_audio-1.txt
 AMI-HD4600-Laptop-A1	DSDT	Patches/8series-Laptop/has7-dsdt-8_series_laptop_hdmi_audio-1.txt
-PJALM-Graphics-hd4600	DSDT	Patches/PJALM-Graphics-hd4600/has8-dsdt-ami-pjalm-graphics-hd4600.txt
+PJALM Graphics Intel HD4600	DSDT	Patches/PJALM Graphics Intel HD4600/has8-dsdt-ami-pjalm-graphics-hd4600.txt
 
