@@ -18,8 +18,6 @@ Details
 [Guide]-OSX-hdmi_audio-hdef_audio-dsdt_v3, see https://github.com/toleda/audio_hdmi_guides
 [Guide]-OSX-hdmi_audio-hdef_audio-ssdt_v3, see https://github.com/toleda/audio_hdmi_guides
 
-OS X Haswell HD4600/AMD/Nvidia HDMI Audio (Audio ID: 1 = patch-A1 = filename-1, etc.)
-
 Problem Reporting
 1. Required info:
    1. [Guide]_HD4600-hdmi_audio_(dsdt_or_ssdt)_v3.pdf
