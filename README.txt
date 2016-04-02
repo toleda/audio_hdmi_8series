@@ -19,11 +19,7 @@ Details
 [Guide]-OSX-hdmi_audio-hdef_audio-ssdt_v3, see https://github.com/toleda/audio_hdmi_guides
 
 Problem Reporting
-1. Required info:
-   1. [Guide]_HD4600-hdmi_audio_(dsdt_or_ssdt)_v3.pdf
-2. Post to:
-   1. http://www.insanelymac.com/forum/topic/301137-yosemite-applehda-hdmi-audio/
-   2. http://www.tonymacx86.com/hdmi-audio/143760-audio-hdmi-audio-applehda-guide.html#post886766
+1. https://github.com/toleda/audio_ALC_guides/blob/master/Problem%20Reporting.md
 
 Credit:
 PikeRAlpha https://pikeralpha.wordpress.com/2013/09/19/haswell-hdau-solution/
